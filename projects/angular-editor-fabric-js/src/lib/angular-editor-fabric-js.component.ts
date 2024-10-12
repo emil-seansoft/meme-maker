@@ -49,7 +49,7 @@ export class FabricjsEditorComponent implements AfterViewInit {
       hoverCursor: 'pointer',
       selection: true,
       selectionBorderColor: 'blue',
-      isDrawingMode: true
+      isDrawingMode: false
     });
 
     this.canvas.on({
@@ -523,33 +523,36 @@ export class FabricjsEditorComponent implements AfterViewInit {
 
   bringToFront() {
     const activeObject = this.canvas.getActiveObject();
-    const activeGroup = this.canvas.getActiveObjects();
-
+    const activeObjects = this.canvas.getActiveObjects();
+  
     if (activeObject) {
       activeObject.bringToFront();
       activeObject.opacity = 1;
-    } else if (activeGroup) {
-      this.canvas.discardActiveObject();
-      activeGroup.forEach((object) => {
+    } else if (activeObjects.length > 0) {
+      activeObjects.forEach((object) => {
         object.bringToFront();
       });
     }
+  
+    // Re-render the canvas after bringing items to front
+    this.canvas.renderAll();
   }
 
   sendToBack() {
     const activeObject = this.canvas.getActiveObject();
-    const activeGroup = this.canvas.getActiveObjects();
-
+    const activeObjects = this.canvas.getActiveObjects();
+  
     if (activeObject) {
-      this.canvas.sendToBack(activeObject);
       activeObject.sendToBack();
       activeObject.opacity = 1;
-    } else if (activeGroup) {
-      this.canvas.discardActiveObject();
-      activeGroup.forEach((object) => {
+    } else if (activeObjects.length > 0) {
+      activeObjects.forEach((object) => {
         object.sendToBack();
       });
     }
+  
+    // Re-render the canvas after sending items to back
+    this.canvas.renderAll();
   }
 
   confirmClear() {

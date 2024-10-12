@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <div class="col-xl-12 main-title">
-          <h4>Github: <a href="https://github.com/saqib92/angular-editor-fabric-js">angular-editor-fabric-js</a></h4>
+          <h4>Test Meme Maker</h4>
       </div>
       <div class="col-xl-12">
           <div class="row">
@@ -10,12 +10,12 @@
                       <i class="fa fa-download" aria-hidden="true"></i> Export to image</button>
                   <button data-toggle="tooltip" data-placement="bottom" title="Export to SVG" type="button" class="btn btn-primary m-1" (click)="rasterizeSVG();">
                       <i class="fa fa-download" aria-hidden="true"></i> Export to SVG</button>
-                  <button data-toggle="tooltip" data-placement="bottom" title="Save in localStorage" type="button" class="btn btn-primary m-1"
+                  <!-- <button data-toggle="tooltip" data-placement="bottom" title="Save in localStorage" type="button" class="btn btn-primary m-1"
                       (click)="saveCanvasToJSON();">
                       <i class="fa fa-save" aria-hidden="true"></i> Save local</button>
                   <button data-toggle="tooltip" data-placement="bottom" title="Load from localStorage" type="button" class="btn btn-primary m-1"
                       (click)="loadCanvasFromJSON();">
-                      <i class="fa fa-save" aria-hidden="true"></i> Load local</button>
+                      <i class="fa fa-save" aria-hidden="true"></i> Load local</button> -->
                   <button data-toggle="tooltip" data-placement="bottom" title="Clean Canvas" type="button" class="btn btn-danger" (click)="confirmClear();">
                       <i class="fa fa-ban" aria-hidden="true"></i> Clean</button>
               </div>
@@ -58,7 +58,7 @@
 
                     <div class="input-group-append">
                       <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" checked id="customSwitch1" (click)="drawMode()">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" (click)="drawMode()">
                         <label class="custom-control-label" for="customSwitch1">Enable / Disable</label>
                       </div>
                         <!-- <span class="input-group-text">
@@ -107,6 +107,8 @@
                   <img class="images-item" (click)="getImgPolaroid($event)" src="../assets/img/abra.svg">
                   <img class="images-item" (click)="getImgPolaroid($event)" src="../assets/img/snorlax.svg">
                   <img class="images-item" (click)="getImgPolaroid($event)" src="../assets/img/zubat.svg">
+                  <img class="images-item" (click)="getImgPolaroid($event)" src="../assets/img/mentality.svg">
+                  <img class="images-item" (click)="getImgPolaroid($event)" src="../assets/img/bb.svg">
               </div>
           </div>
           <br/>
@@ -150,7 +152,7 @@
                           (click)="removeSelected();">
                           <i class="fa fa-trash" aria-hidden="true"></i>
                       </button>
-                      <button data-toggle="tooltip" data-placement="bottom" title="Send to back" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
+                      <!-- <button data-toggle="tooltip" data-placement="bottom" title="Send to back" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
                           (click)="sendToBack();">
                           <i class="fa fa-level-down" aria-hidden="true"></i>
                       </button>
@@ -161,11 +163,11 @@
                       <button data-toggle="tooltip" data-placement="bottom" title="Clone" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected || canvas.selected.type == 'group'"
                           (click)="clone();">
                           <i class="fa fa-clone" aria-hidden="true"></i>
-                      </button>
-                      <button data-toggle="tooltip" data-placement="bottom" title="Unselect" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
+                      </button> -->
+                      <!-- <button data-toggle="tooltip" data-placement="bottom" title="Unselect" type="button" class="btn btn-outline-primary" [disabled]="!canvas.selected"
                           (click)="cleanSelect()">
                           <i class="fa fa-remove" aria-hidden="true"></i>
-                      </button>
+                      </button> -->
                   </div>
               </div>
           </div>
@@ -186,16 +188,16 @@
                           <input type="text" class="form-control" placeholder="http://example.jpg" [(ngModel)]="canvas.props.canvasImage" (keyup)="setCanvasImage()">
                       </div>
                   </div>
-                  <div class="custom-item" *ngIf="!canvas.props.canvasImage">
+                  <!-- <div class="custom-item" *ngIf="!canvas.props.canvasImage">
                     <div class="custom-item-title">Object Background</div>
                     <div class="custom-item-body">
                         <input type="color" class="form-control" (change)="onObjectColorChange($event)" value="#efefef">
                     </div>
-                  </div>
+                  </div> -->
               </div>
           </div>
           <br/>
-          <div class="card">
+          <!-- <div class="card">
               <div class="card-header">Custom</div>
               <div class="card-body">
                   <div class="custom-item" *ngIf="canvas.selected  && canvas.selected.type == 'group'">Group Selected</div>
@@ -302,13 +304,13 @@
                           <input type="range" [(ngModel)]="canvas.props.charSpacing" (change)="setCharSpacing()" step="10" min="-200" max="800">{{canvas.props.charSpacing}}</div>
                   </div>
               </div>
-          </div>
+          </div> -->
       </div>
   </div>
   <div class="row">
       <div class="col-xl-12">
           <br/>
-          <div class="card">
+          <!-- <div class="card">
               <div class="card-header">
                   <button type="button" class="btn btn-primary btn-sm" (click)="rasterizeJSON()">
                       <i class="fa fa-refresh" aria-hidden="true"></i> Render to json</button>
@@ -316,7 +318,7 @@
               <div class="card-body">
                   <pre>{{canvas.json}}</pre>
               </div>
-          </div>
+          </div> -->
       </div>
   </div>
   <br>
